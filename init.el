@@ -4,6 +4,14 @@
  ;; show line number
 (global-linum-mode t)
 
+ ;; hide tool bar
+(if window-system
+    (tool-bar-mode -1)
+)
+
+ ;; Show paired paren
+(show-paren-mode 1)
+
  ;; package repo
 (require 'package)
 ;(add-to-list 'package-archives
