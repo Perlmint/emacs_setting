@@ -22,6 +22,11 @@
         (require (intern (file-name-sans-extension name))))
       (directory-files "~/.emacs.d/lisp/mode" nil "\\.el$"))
 
+ ;; git
+(require 'git)
+(require 'git-blame)
+(require 'git-gutter)
+
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
