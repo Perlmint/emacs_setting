@@ -49,6 +49,8 @@
 (setq blank-chars (list 'tabs 'spaces 'trailing 'lines-tail 'empty))
 (global-blank-mode 1)
 
+(server-start)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Setup short cuts
 ;

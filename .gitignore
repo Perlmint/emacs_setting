@@ -1,5 +1,6 @@
 *.elc
 *~
+server
 eshell
 auto-save-list
 elpa/archives/**/archive-contents
