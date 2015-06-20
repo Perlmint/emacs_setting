@@ -78,6 +78,9 @@
  ;; set default-font
 (set-default-font "NanumGothicCoding-12")
 
+ ;; drag-and-drop just append buffer
+(setq ns-pop-up-frames nil)
+
 (server-start)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
