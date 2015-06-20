@@ -12,7 +12,17 @@
  ;; Show paired paren
 (show-paren-mode 1)
 
- ;; package repo
+ ;; change blank-mode display character
+(setq blank-display-mappings
+    '((?\   [?\x20]     [?.])       ; space - use 'space' character.
+                                    ; NanumGothicCoding represent
+                                    ; 'middle dot' as Full-width
+     (?\xA0 [?\xA4]     [?_])       ; hard space
+     (?\n   [?\xB6 ?\n] [?$ ?\n])   ; end-of-line
+     (?\t   [?\xBB ?\t] [?\\ ?\t])  ; tab
+    ))
+
+ ;; Package repo
 (require 'package)
 ;(add-to-list 'package-archives
 ;    '("marmalade" .
@@ -64,6 +74,9 @@
       (while (search-forward-regexp "\>[[:blank:]]*\<" nil t) 
         (backward-char) (insert "\n"))
       (indent-region begin end)))
+
+ ;; set default-font
+(set-default-font "NanumGothicCoding-12")
 
 (server-start)
 
