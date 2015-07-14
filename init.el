@@ -82,6 +82,10 @@
  ;; drag-and-drop just append buffer
 (setq ns-pop-up-frames nil)
 
+ ;; python auto complete
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+
 (server-start)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
