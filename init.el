@@ -24,9 +24,10 @@
 
  ;; Package repo
 (require 'package)
-;(add-to-list 'package-archives
+(add-to-list 'package-archives
+    '("melpa" . "http://melpa.org/packages/") t)
 ;    '("marmalade" .
-;      "http://marmalade-repo.org/packages/"))
+;      "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
 
