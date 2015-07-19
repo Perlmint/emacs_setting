@@ -1,4 +1,11 @@
- ;; disable startup message
+; list the packages you want
+(setq package-list '(
+  color-theme color-theme-solarized
+  tidy
+  magit
+  jedi python python-environment))
+
+;; disable startup message
 (setq inhibit-startup-message t)
 
  ;; show line number
@@ -16,8 +23,17 @@
 (require 'package)
 (add-to-list 'package-archives
     '("melpa" . "http://melpa.org/packages/") t)
+; activate all the packages (in particular autoloads)
 (package-initialize)
 
+; fetch the list of packages available 
+(unless package-archive-contents
+  (package-refresh-contents))
+
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
 
  ;; setup load-path
 (add-to-list 'load-path "~/.emacs.d/lisp")
