@@ -16,8 +16,6 @@
 (require 'package)
 (add-to-list 'package-archives
     '("melpa" . "http://melpa.org/packages/") t)
-;    '("marmalade" .
-;      "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
 
