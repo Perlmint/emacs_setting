@@ -62,7 +62,8 @@
 (setq default-tab-width 4)
 
  ;; theme
-(load-theme 'solarized-dark t)
+(set-frame-parameter nil 'background-mode 'dark)
+(load-theme 'solarized t)
 
  ;; blank-mode
 (require 'blank-mode)
