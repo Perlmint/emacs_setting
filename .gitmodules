@@ -1,0 +1,3 @@
+[submodule "lisp/magit-exttool"]
+	path = lisp/magit-exttool
+	url = https://github.com/Perlmint/magit-exttool.git

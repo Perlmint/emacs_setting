@@ -113,3 +113,4 @@
 
 (require 'json-reformat)
 (require 'android-mode)
+(require 'magit-exttool)
