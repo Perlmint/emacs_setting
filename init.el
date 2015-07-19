@@ -12,16 +12,6 @@
  ;; Show paired paren
 (show-paren-mode 1)
 
- ;; change blank-mode display character
-(setq blank-display-mappings
-    '((?\   [?\x20]     [?.])       ; space - use 'space' character.
-                                    ; NanumGothicCoding represent
-                                    ; 'middle dot' as Full-width
-     (?\xA0 [?\xA4]     [?_])       ; hard space
-     (?\n   [?\xB6 ?\n] [?$ ?\n])   ; end-of-line
-     (?\t   [?\xBB ?\t] [?\\ ?\t])  ; tab
-    ))
-
  ;; Package repo
 (require 'package)
 (add-to-list 'package-archives
@@ -45,6 +35,15 @@
 (require 'git)
 (require 'git-blame)
 (require 'git-gutter)
+ ;; change blank-mode display character
+(setq blank-display-mappings
+    '((?\   [?\x20]     [?.])       ; space - use 'space' character.
+                                    ; NanumGothicCoding represent
+                                    ; 'middle dot' as Full-width
+     (?\xA0 [?\xA4]     [?_])       ; hard space
+     (?\n   [?\xB6 ?\n] [?$ ?\n])   ; end-of-line
+     (?\t   [?\xBB ?\t] [?\\ ?\t])  ; tab
+    ))
 
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
