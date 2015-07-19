@@ -45,10 +45,6 @@
         (require (intern (file-name-sans-extension name))))
       (directory-files "~/.emacs.d/lisp/mode" nil "\\.el$"))
 
- ;; git
-(require 'git)
-(require 'git-blame)
-(require 'git-gutter)
  ;; change blank-mode display character
 (setq blank-display-mappings
     '((?\   [?\x20]     [?.])       ; space - use 'space' character.
