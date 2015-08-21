@@ -3,7 +3,8 @@
   color-theme color-theme-solarized
   tidy
   magit
-  jedi python python-environment))
+  jedi python python-environment
+  cmake-mode))
 
 ;; disable startup message
 (setq inhibit-startup-message t)
@@ -97,6 +98,51 @@
 (setq jedi:complete-on-dot t)
 
 (server-start)
+
+;;
+;;
+;;
+
+(defun how-many-region (begin end regexp &optional interactive)
+  "Print number of non-trivial matches for REGEXP in region.
+Non-interactive arguments are Begin End Regexp"
+  (interactive "r\nsHow many matches for (regexp): \np")
+  (let ((count 0) opoint)
+    (save-excursion
+      (setq end (or end (point-max)))
+      (goto-char (or begin (point)))
+      (while (and (< (setq opoint (point)) end)
+                  (re-search-forward regexp end t))
+        (if (= opoint (point))
+            (forward-char 1)
+          (setq count (1+ count))))
+      (if interactive (message "%d occurrences" count))
+      count)))
+
+(defun infer-indentation-style ()
+  (let ((space-count (how-many-region (point-min) (point-max) "^  "))
+        (tab-count (how-many-region (point-min) (point-max) "^\t")))
+    (if (> space-count tab-count) (setq indent-tabs-mode nil))
+    (if (> tab-count space-count) (setq indent-tabs-mode t))))
+
+(defun my-cxx-mode ()
+  (setq tab-width 2)
+  (setq-default indent-tabs-mode nil)
+  (infer-indentation-style nil)
+  (irony-mode nil))
+
+(add-hook 'c-mode-hook 'my-cxx-mode)
+(add-hook 'c++-mode-hook 'my-cxx-mode)
+
+(defun my-ac-irony-setup ()
+  ;; be cautious, if yas is not enabled before (auto-complete-mode 1), overlays
+  ;; *may* persist after an expansion.
+  (auto-complete-mode 1)
+
+  (add-to-list 'ac-sources 'ac-source-irony)
+  (define-key irony-mode-map (kbd "M-RET") 'ac-complete-irony-async))
+
+(add-hook 'irony-mode-hook 'my-ac-irony-setup)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Setup short cuts
