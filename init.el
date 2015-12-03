@@ -4,6 +4,8 @@
   tidy
   magit
   jedi python python-environment
+  go-mode
+  go-autocomplete
   cmake-mode))
 
 ;; disable startup message
@@ -44,7 +46,8 @@
  ;; require all .el files in ~/.emacs.d/lisp/mode
 (mapc (lambda (name)
         (require (intern (file-name-sans-extension name))))
-      (directory-files "~/.emacs.d/lisp/mode" nil "\\.el$"))
+      (append
+       (directory-files "~/.emacs.d/lisp/mode" nil "\\.el$")))
 
  ;; change blank-mode display character
 (setq blank-display-mappings
@@ -160,3 +163,20 @@ Non-interactive arguments are Begin End Regexp"
 (require 'json-reformat)
 (require 'android-mode)
 (require 'magit-exttool)
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH"))
+
+(defun go-mode-setup ()
+  (setq compile-command "go build -v && go test -v ./...")
+  (define-key (current-local-map) "\C-c\C-c" 'compile)
+  (go-eldoc-setup)
+; (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  (local-set-key (kbd "M-.") 'godef-jump))
+(add-hook 'go-mode-hook 'go-mode-setup)
+(add-hook 'go-mode-hook 'auto-complete-mode)
+
+(require 'auto-complete-config)
+(require 'go-autocomplete)
