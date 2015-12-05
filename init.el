@@ -25,7 +25,7 @@
  ;; Package repo
 (require 'package)
 (add-to-list 'package-archives
-    '("melpa" . "http://melpa.org/packages/") t)
+    '("melpa" . "https://melpa.org/packages/") t)
 ; activate all the packages (in particular autoloads)
 (package-initialize)
 
