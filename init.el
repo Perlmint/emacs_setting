@@ -3,12 +3,10 @@
   color-theme color-theme-solarized
   tidy
   magit
-  jedi python python-environment
-  rust-mode
-  ac-racer
   company
-  go-mode
-  go-autocomplete
+  jedi python python-environment company-jedi
+  rust-mode ac-racer
+  go-mode company-go
   cmake-mode))
 
 ;; disable startup message
@@ -180,7 +178,9 @@ Non-interactive arguments are Begin End Regexp"
   (add-hook 'before-save-hook 'gofmt-before-save)
   (local-set-key (kbd "M-.") 'godef-jump))
 (add-hook 'go-mode-hook 'go-mode-setup)
-(add-hook 'go-mode-hook 'auto-complete-mode)
+(add-hook 'go-mode-hook (lambda ()
+                          (set (make-local-variable 'company-backends) '(company-go))
+                          (company-mode)))
 
 (require 'auto-complete-config)
 (require 'go-autocomplete)
