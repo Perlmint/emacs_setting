@@ -4,6 +4,9 @@
   tidy
   magit
   jedi python python-environment
+  rust-mode
+  ac-racer
+  company
   go-mode
   go-autocomplete
   cmake-mode))
@@ -166,7 +169,8 @@ Non-interactive arguments are Begin End Regexp"
 
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "GOPATH"))
+  (exec-path-from-shell-copy-env "GOPATH")
+  (exec-path-from-shell-copy-env "RUST_SRC_PATH"))
 
 (defun go-mode-setup ()
   (setq compile-command "go build -v && go test -v ./...")
@@ -180,3 +184,11 @@ Non-interactive arguments are Begin End Regexp"
 
 (require 'auto-complete-config)
 (require 'go-autocomplete)
+
+(setq racer-rust-src-path (getenv "RUST_SRC_PATH"))
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
+(setq company-tooltip-align-annotations t)
