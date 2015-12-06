@@ -98,8 +98,12 @@
 (setq ns-pop-up-frames nil)
 
  ;; python auto complete
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+(defun setup-python-mode ()
+  (jedi:setup)
+  (company-mode)
+  (add-to-list 'company-backends 'company-jedi))
+
+(add-hook 'python-mode-hook 'setup-python-mode)
 
 (server-start)
 
