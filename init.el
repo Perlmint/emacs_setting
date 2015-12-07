@@ -178,7 +178,7 @@ Non-interactive arguments are Begin End Regexp"
   (setq compile-command "go build -v && go test -v ./...")
   (define-key (current-local-map) "\C-c\C-c" 'compile)
   (go-eldoc-setup)
-; (setq gofmt-command "goimports")
+ (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)
   (local-set-key (kbd "M-.") 'godef-jump)
   (set (make-local-variable 'company-backends) '(company-go))
