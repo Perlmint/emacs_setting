@@ -194,7 +194,12 @@ Non-interactive arguments are Begin End Regexp"
 	(if (file-exists-p tmp_path)
 		(progn
 		  (make-local-variable 'goautoenv)
-		  (setq goautoenv (append-path path ".goenv"))
+		  (setq goautoenv
+				(with-temp-buffer
+				  (insert-file-contents tmp_path)
+				  (substring (buffer-string)
+							 (+ 7 (string-match "^GOPATH=.+$" (buffer-string)))
+							 (match-end 0))))
 		  (add-function :before (symbol-function 'company-go--invoke-autocomplete) #'goautoenv-invoke-autocomplete)
 		  (setq path nil))
 	  (setq path (file-name-directory (directory-file-name path))))
