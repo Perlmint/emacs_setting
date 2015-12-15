@@ -5,7 +5,7 @@
   tidy
   magit
   company
-  jedi python python-environment company-jedi
+  python-mode jedi python python-environment company-jedi
   rust-mode ac-racer
   go-mode company-go go-autocomplete
   irony
@@ -224,3 +224,17 @@ Non-interactive arguments are Begin End Regexp"
 (setq company-tooltip-align-annotations t)
 
 (global-undo-tree-mode)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+	(python-mode tidy magit jedi irony go-autocomplete company-jedi company-go color-theme-solarized cmake-mode ac-racer))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
