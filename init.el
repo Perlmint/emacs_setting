@@ -7,7 +7,8 @@
   company
   jedi python python-environment company-jedi
   rust-mode ac-racer
-  go-mode company-go
+  go-mode company-go go-autocomplete
+  irony
   cmake-mode))
 
 ;; disable startup message
