@@ -94,7 +94,8 @@
       (indent-region begin end)))
 
  ;; set default-font
-(set-default-font "NanumGothicCoding-12")
+ ;; https://github.com/googlei18n/noto-ckj
+(set-default-font "Noto Sans Mono CJK KR Regular-10.0")
 
  ;; drag-and-drop just append buffer
 (setq ns-pop-up-frames nil)
