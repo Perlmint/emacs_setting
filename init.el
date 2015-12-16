@@ -1,6 +1,7 @@
 ; list the packages you want
 (setq package-list '(
   color-theme color-theme-solarized
+  undo-tree
   tidy
   magit
   company
@@ -219,3 +220,5 @@ Non-interactive arguments are Begin End Regexp"
 
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
 (setq company-tooltip-align-annotations t)
+
+(global-undo-tree-mode)
