@@ -32,7 +32,7 @@
 ; activate all the packages (in particular autoloads)
 (package-initialize)
 
-; fetch the list of packages available 
+; fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -54,13 +54,13 @@
 
  ;; change blank-mode display character
 (setq blank-display-mappings
-    '((?\   [?\x20]     [?.])       ; space - use 'space' character.
-                                    ; NanumGothicCoding represent
-                                    ; 'middle dot' as Full-width
-     (?\xA0 [?\xA4]     [?_])       ; hard space
-     (?\n   [?\xB6 ?\n] [?$ ?\n])   ; end-of-line
-     (?\t   [?\xBB ?\t] [?\\ ?\t])  ; tab
-    ))
+      '((?\   [?\x20]     [?.])         ; space - use 'space' character.
+                                        ; NanumGothicCoding represent
+                                        ; 'middle dot' as Full-width
+        (?\xA0 [?\xA4]     [?_])       ; hard space
+        (?\n   [?\xB6 ?\n] [?$ ?\n])   ; end-of-line
+        (?\t   [?\xBB ?\t] [?\\ ?\t])  ; tab
+        ))
 
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
@@ -89,7 +89,7 @@
   (save-excursion
       (nxml-mode)
       (goto-char begin)
-      (while (search-forward-regexp "\>[[:blank:]]*\<" nil t) 
+      (while (search-forward-regexp "\>[[:blank:]]*\<" nil t)
         (backward-char) (insert "\n"))
       (indent-region begin end)))
 
@@ -187,26 +187,26 @@ Non-interactive arguments are Begin End Regexp"
   (set (make-local-variable 'company-backends) '(company-go))
   (company-mode)
   (defun append-path (a &rest arg-list)
-	(dolist (b arg-list)
-	  (setq a (concat (file-name-as-directory a) b)))
-	a)
+    (dolist (b arg-list)
+      (setq a (concat (file-name-as-directory a) b)))
+    a)
   (setq path (file-name-directory buffer-file-name))
   ; goautoenv
   (while path
-	(setq tmp_path (append-path path ".goenv" "bin" "activate"))
-	(if (file-exists-p tmp_path)
-		(progn
-		  (make-local-variable 'goautoenv)
-		  (setq goautoenv
-				(with-temp-buffer
-				  (insert-file-contents tmp_path)
-				  (substring (buffer-string)
-							 (+ 7 (string-match "^GOPATH=.+$" (buffer-string)))
-							 (match-end 0))))
-		  (add-function :before (symbol-function 'company-go--invoke-autocomplete) #'goautoenv-invoke-autocomplete)
-		  (setq path nil))
-	  (setq path (file-name-directory (directory-file-name path))))
-	))
+    (setq tmp_path (append-path path ".goenv" "bin" "activate"))
+    (if (file-exists-p tmp_path)
+        (progn
+          (make-local-variable 'goautoenv)
+          (setq goautoenv
+                (with-temp-buffer
+                  (insert-file-contents tmp_path)
+                  (substring (buffer-string)
+                             (+ 7 (string-match "^GOPATH=.+$" (buffer-string)))
+                             (match-end 0))))
+          (add-function :before (symbol-function 'company-go--invoke-autocomplete) #'goautoenv-invoke-autocomplete)
+          (setq path nil))
+      (setq path (file-name-directory (directory-file-name path))))
+    ))
 (add-hook 'go-mode-hook 'go-mode-setup)
 
 (require 'auto-complete-config)
@@ -231,7 +231,7 @@ Non-interactive arguments are Begin End Regexp"
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(python-mode tidy magit jedi irony go-autocomplete company-jedi company-go color-theme-solarized cmake-mode ac-racer))))
+    (python-mode tidy magit jedi irony go-autocomplete company-jedi company-go color-theme-solarized cmake-mode ac-racer))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
