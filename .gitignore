@@ -6,3 +6,9 @@ auto-save-list
 elpa/archives/**/archive-contents
 tramp
 elpa
+
+# for jedi
+.python-environments
+
+# for windows package https
+network-security.data
