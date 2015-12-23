@@ -9,6 +9,7 @@
   rust-mode ac-racer
   go-mode company-go go-autocomplete
   irony
+  twittering-mode slack
   cmake-mode))
 
 ;; disable startup message
