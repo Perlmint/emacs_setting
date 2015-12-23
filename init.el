@@ -168,6 +168,9 @@ Non-interactive arguments are Begin End Regexp"
  ;; insert into rectangle
 (global-set-key (kbd "C-x r i") 'string-insert-rectangle)
 
+;; undo-tree
+(global-set-key (kbd "C-x C-/") 'undo-tree-visualize)
+
 (require 'json-reformat)
 (require 'android-mode)
 (require 'magit-exttool)
