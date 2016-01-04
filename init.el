@@ -8,6 +8,7 @@
   python-mode jedi python python-environment company-jedi
   rust-mode ac-racer
   go-mode company-go go-autocomplete
+  markdown-mode+
   irony
   twittering-mode slack
   cmake-mode))
@@ -235,3 +236,5 @@ Non-interactive arguments are Begin End Regexp"
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(require 'markdown-preview-mode)
