@@ -18,6 +18,7 @@
 
  ;; show line number
 (global-linum-mode t)
+(column-number-mode t)
 
  ;; hide tool bar
 (if window-system
