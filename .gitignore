@@ -12,3 +12,9 @@ elpa
 
 # for windows package https
 network-security.data
+
+# semanticdb
+semanticdb
+
+# auto complete data
+ac-comphist.dat
