@@ -143,7 +143,7 @@ Non-interactive arguments are Begin End Regexp"
 (defun my-cxx-mode ()
   (setq tab-width 2)
   (setq-default indent-tabs-mode nil)
-  (infer-indentation-style nil)
+  (infer-indentation-style)
   (irony-mode nil))
 
 (add-hook 'c-mode-hook 'my-cxx-mode)
