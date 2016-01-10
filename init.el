@@ -5,6 +5,7 @@
   tidy
   magit
   company
+  omnisharp
   python-mode jedi python python-environment company-jedi
   rust-mode ac-racer
   go-mode company-go go-autocomplete
@@ -228,6 +229,17 @@ Non-interactive arguments are Begin End Regexp"
 
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
 (setq company-tooltip-align-annotations t)
+
+(defun cs-mode ()
+  (setq tab-width 2)
+  (setq-default indent-tabs-mode nil)
+  (infer-indentation-style))
+(add-hook 'csharp-mode-hook 'cs-mode)
+(add-hook 'omnisharp-mode-hook #'company-mode)
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-omnisharp))
+(setq omnisharp-server-executable-path
+      "~/.emacs.d/others/bin/common/OmniSharp.exe")
 
 (global-undo-tree-mode)
 
