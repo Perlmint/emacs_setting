@@ -1,5 +1,7 @@
 ;; theme
 (set-frame-parameter nil 'background-mode 'dark)
+(custom-set-variables
+ '(frame-background-mode (quote dark)))
 (load-theme 'solarized t)
 
 ;; set default-font

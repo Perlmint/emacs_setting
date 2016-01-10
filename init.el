@@ -17,6 +17,7 @@
     (package-install package)))
 
 (load "~/.emacs.d/load-directory.el")
+(load "~/.emacs.d/config/common/theme.el")
 ;; load non-package managed modes
 (load-directory "~/.emacs.d/modes")
 ;; load config
