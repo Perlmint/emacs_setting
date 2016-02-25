@@ -12,4 +12,5 @@
   markdown-mode+ ;; md
   irony ;; c / c++
   twittering-mode slack
+  csv-mode
   cmake-mode))
