@@ -15,4 +15,5 @@
   csv-mode
   cmake-mode
   editorconfig
+  flycheck
   ))
