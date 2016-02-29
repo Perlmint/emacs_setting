@@ -13,4 +13,6 @@
   irony ;; c / c++
   twittering-mode slack
   csv-mode
-  cmake-mode))
+  cmake-mode
+  editorconfig
+  ))
