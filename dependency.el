@@ -6,9 +6,9 @@
   magit ;; magit
   company ;; auto complete
   omnisharp ;; c# auto complete
-  python-mode jedi python python-environment company-jedi ;; python
-  rust-mode ac-racer ;; rust
-  go-mode company-go go-autocomplete ;; go
+  python-mode python python-environment company-jedi ;; python
+  rust-mode company-racer ;; rust
+  go-mode company-go ;; go
   markdown-mode+ ;; md
   irony ;; c / c++
   twittering-mode slack

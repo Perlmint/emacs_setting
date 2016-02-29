@@ -35,8 +35,6 @@
     ))
 (add-hook 'go-mode-hook 'go-mode-setup)
 
-(require 'auto-complete-config)
-(require 'go-autocomplete)
 (defun goautoenv-invoke-autocomplete ()
   (setenv "GOPATH" goautoenv)
   )
