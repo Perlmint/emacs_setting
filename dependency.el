@@ -16,4 +16,5 @@
   cmake-mode
   editorconfig
   flycheck
+  yasnippet
   ))
