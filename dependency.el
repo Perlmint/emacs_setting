@@ -4,7 +4,7 @@
   undo-tree ;; undo-tree
   tidy ;; tidy html / xml
   magit ;; magit
-  company ;; auto complete
+  company company-quickhelp;; auto complete
   omnisharp ;; c# auto complete
   python-mode python python-environment company-jedi ;; python
   rust-mode company-racer ;; rust
