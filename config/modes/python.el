@@ -1,8 +1,9 @@
 ;; python auto complete
 (defun setup-python-mode ()
-  (jedi:setup)
-  (company-mode)
-  (add-to-list 'company-backends 'company-jedi))
+  (progn
+    (jedi:setup)
+    (set (make-local-variable 'company-backends)
+         (cons 'company-jedi company-backends))))
 
 (add-hook 'python-mode-hook 'setup-python-mode)
 (setq python-shell-prompt-detect-failure-warning nil)
