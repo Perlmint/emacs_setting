@@ -8,19 +8,18 @@
     (defun recursive-find (path)
       (let ((tmp_path (append-path path ".pyenv" "bin" "activate")))
         (if (file-exists-p tmp_path)
-            (let ((venv-location (append-path path ".pyenv")))
-              (progn
-                (set (make-local-variable 'python-environment-directory)
-                     venv-location)
-                (set (make-local-variable 'python-environment-default-root-name)
-                     "")
-                (if (file-exists-p
-                     (append-path path ".pyenv" "bin" "jediepcserver"))
-                    nil
-                  (progn
-                    (jedi:setup)
-                    (jedi:install-server)))
-                ))
+            (progn
+              (set (make-local-variable 'python-environment-directory)
+                   path)
+              (set (make-local-variable 'python-environment-default-root-name)
+                   ".pyenv")
+              (if (file-exists-p
+                   (append-path path ".pyenv" "bin" "jediepcserver"))
+                  nil
+                (progn
+                  (jedi:setup)
+                  (jedi:install-server)))
+              )
           (recursive-find (file-name-directory (directory-file-name path))))
         )
       )
