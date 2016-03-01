@@ -17,4 +17,6 @@
   editorconfig
   flycheck
   yasnippet
+  typescript-mode tide
+  web-mode
   ))
