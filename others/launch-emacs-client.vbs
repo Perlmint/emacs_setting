@@ -26,7 +26,7 @@ If WScript.Arguments.Count = 2 Then
       Else
         mode = ""
       End If
-      objShell.Run("""" & fso.GetParentFolderName(WScript.ScriptFullName) & "/emacsclientw.exe""" & mode & " --server-file ""%USERPROFILE%\AppData\Roaming\.emacs.d\server\server"" -n """ & WScript.Arguments(1) & """")
+      objShell.Run("""" & fso.GetParentFolderName(WScript.ScriptFullName) & "/emacsclientw.exe""" & mode & " --server-file ""%USERPROFILE%\.emacs.d\server\server"" -n """ & WScript.Arguments(1) & """")
     Else
       objShell.Run("""" & fso.GetParentFolderName(WScript.ScriptFullName) & "/runemacs.exe"" """ & WScript.Arguments(1) & """")
     End If
