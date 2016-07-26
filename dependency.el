@@ -1,6 +1,7 @@
 ; list the packages you want
 (setq package-list '(
   color-theme color-theme-solarized ;; theme
+  exec-path-from-shell
   undo-tree ;; undo-tree
   tidy ;; tidy html / xml
   magit ;; magit

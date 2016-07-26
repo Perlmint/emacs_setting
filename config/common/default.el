@@ -14,3 +14,7 @@
 
 ;; indent with space
 (setq indent-tabs-mode nil)
+
+;; for osx
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
