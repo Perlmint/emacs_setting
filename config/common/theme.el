@@ -6,4 +6,4 @@
 
 ;; set default-font
 ;; https://github.com/googlei18n/noto-ckj
-(set-default-font "Noto Sans Mono CJK KR Regular-10.0")
+(set-default-font "Noto Sans Mono CJK KR-10")
