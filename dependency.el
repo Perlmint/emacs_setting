@@ -20,4 +20,5 @@
   yasnippet
   typescript-mode tide
   web-mode
+  ng2-mode
   ))

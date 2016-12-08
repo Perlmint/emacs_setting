@@ -30,3 +30,4 @@
 (require 'android-mode)
 (require 'magit-exttool)
 (require 'markdown-preview-mode)
+(require 'ng2-mode)
