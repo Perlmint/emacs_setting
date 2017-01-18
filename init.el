@@ -18,6 +18,9 @@
 
 (load "~/.emacs.d/load-directory.el")
 (load "~/.emacs.d/config/common/theme.el")
+(if (eq system-type 'windows-nt)
+    (setq with-editor-emacsclient-executable (expand-file-name "./emacsclient.exe" invocation-directory))
+  )
 ;; load non-package managed modes
 (load-directory "~/.emacs.d/modes")
 ;; load config
