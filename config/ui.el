@@ -1,3 +1,12 @@
+;;; Setup UI
+(if window-system
+  ;; hide tool bar
+  (tool-bar-mode -1)
+  )
+
+;; drag-and-drop just append buffer
+(setq ns-pop-up-frames nil)
+
 ;; disable startup message
 (setq inhibit-startup-message t)
 
@@ -8,13 +17,3 @@
 
 ;; Show paired paren
 (show-paren-mode 1)
-
-;; tab width
-(setq default-tab-width 4)
-
-;; indent with space
-(setq indent-tabs-mode nil)
-
-;; for osx
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
