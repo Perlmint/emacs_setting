@@ -11,10 +11,9 @@
 
 (defun package-require (packages fn)
   (dolist (package packages)
-    (let ((package-name (symbol-name package)))
-      (unless (package-installed-p package-name)
-        (package-install package)
-        )
+    (unless (package-installed-p package)
+      (message "%s is not installed. try install" (symbol-name package))
+      (package-install package)
       )
     )
   (funcall fn)
