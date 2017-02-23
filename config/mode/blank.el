@@ -1,17 +1,21 @@
 (package-require
   '(blank-mode)
   (lambda ()
-    (setq blank-chars (list 'tabs 'spaces 'trailing 'lines-tail 'empty))
+    (custom-set-variables
+      '(blank-chars '(tabs spaces trailing lines-tail newline empty))
+      '(blank-style '(mark))
+      '(blank-display-mappings
+        '(
+          (?\   [?\x20]     [?.])        ; space - use 'space'
+          (?\xA0 [?\xA4]     [?_])       ; hard space
+          (?\n   [?\xB6 ?\n] [?$ ?\n])   ; end-of-
+          (?\r   [?\xB6 ?\r] [?$ ?\r])
+          (?\t   [?\xBB ?\t] [?\\ ?\t])  ;
+          ))
+      '(blank-global-modes t))
     (blank-mode)
-    (global-blank-mode)
-
-    ;; change blank-mode display character
-    (setq blank-display-mappings
-      '((?\   [?\x20]     [?.])        ; space - use 'space' character.
-         (?\xA0 [?\xA4]     [?_])       ; hard space
-         (?\n   [?\xB6 ?\n] [?$ ?\n])   ; end-of-line
-         (?\r   [?\xB6 ?\r] [?$ ?\r])
-         (?\t   [?\xBB ?\t] [?\\ ?\t])  ; tab
-         ))
+    (global-blank-mode t)
+    (global-blank-toggle-options "x")
+    (global-blank-toggle-options "z")
     )
   )
